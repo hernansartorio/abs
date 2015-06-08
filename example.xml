@@ -1,0 +1,87 @@
+<krpano>
+
+  <preview type="grid(cube,64,64,512,0xEEEEEE,0xFFFFFF,0xEEEEEE);" />
+
+  <plugin name="abs" keep="true"
+    url="%SWFPATH%/abs.swf" 
+    alturl="%SWFPATH%/abs.js" 
+    onloaded="run_tests(); showlog();"/>
+     
+  <style name="square" 
+     type="container" 
+     keep="true" 
+     maskchildren="false"
+     bgalpha=".25" 
+     bgcolor="0x000000" 
+     bgcapture="true"
+  />
+  <layer name="parent" style="square" scale=".5" align="lefttop" x="100" y="100" width="600" height="600" scalechildren="true">
+    <layer name="child" style="square" scale=".5" align="center" x="0" y="0" width="800" height="800" scalechildren="false">
+      <layer name="grand_child" style="square" scale=".5" align="rightbottom" ox="-100" oy="-100" width="400" height="400">
+      </layer>
+    </layer>
+  </layer>
+  
+  <action name="run_tests">
+    trace(Abs plugin tests);
+    
+    plugin[abs].get_x(parent_x, parent);
+    trace('layer[parent] abs. x, should be 100, is ', parent_x);
+    
+    plugin[abs].get_y(parent_y, parent);
+    trace('layer[parent] abs. y, should be 100, is ', parent_y);
+    
+    plugin[abs].get_width(parent_width, parent);
+    trace('layer[parent] abs. width, should be 300, is ', parent_width);
+    
+    plugin[abs].get_height(parent_height, parent);
+    trace('layer[parent] abs. height, should be 300, is ', parent_height);
+    
+    plugin[abs].get_scale(parent_scale, parent);
+    trace('layer[parent] abs. scale, should be 0.5, is ', parent_scale);
+    
+    
+    plugin[abs].get_x(child_x, child);
+    trace('layer[child] abs. x, should be 150, is ', child_x);
+    
+    plugin[abs].get_y(child_y, child);
+    trace('layer[child] abs. y, should be 150, is ', child_y);
+    
+    plugin[abs].get_width(child_width, child);
+    trace('layer[child] abs. width, should be 200, is ', child_width);
+    
+    plugin[abs].get_height(child_height, child);
+    trace('layer[child] abs. height, should be 200, is ', child_height);
+    
+    plugin[abs].get_scale(child_scale, child);
+    trace('layer[child] abs. scale, should be 0.5, is ', child_scale);
+    
+    
+    plugin[abs].get_x(grand_child_x, grand_child);
+    trace('layer[grand_child] abs. x, should be 200, is ', grand_child_x);
+
+    plugin[abs].get_x(grand_child_x_center, grand_child, center);
+    trace('layer[grand_child] abs. x with origin center, should be 250, is ', grand_child_x_center);
+    
+    plugin[abs].get_x(grand_child_x_right, grand_child, right);
+    trace('layer[grand_child] abs. x with origin right, should be 300, is ', grand_child_x_right);
+        
+    plugin[abs].get_y(grand_child_y, grand_child);
+    trace('layer[grand_child] abs. y, should be 200, is ', grand_child_y);
+ 
+    plugin[abs].get_y(grand_child_y_center, grand_child, center);
+    trace('layer[grand_child] abs. y with origin center, should be 250, is ', grand_child_y_center);
+    
+    plugin[abs].get_y(grand_child_y_bottom, grand_child, bottom);
+    trace('layer[grand_child] abs. y with origin bottom, should be 300, is ', grand_child_y_bottom);
+       
+    plugin[abs].get_width(grand_child_width, grand_child);
+    trace('layer[grand_child] abs. width, should be 100, is ', grand_child_width);
+    
+    plugin[abs].get_height(grand_child_height, grand_child);
+    trace('layer[grand_child] abs. height, should be 100, is ', grand_child_height);
+    
+    plugin[abs].get_scale(grand_child_scale, grand_child);
+    trace('layer[grand_child] abs. scale, should be 0.25, is ', grand_child_scale);
+  </action>
+</krpano>

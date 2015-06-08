@@ -1,0 +1,1 @@
+See the documentation on [krpano.com/plugins/userplugins/abs](http://krpano.com/plugins/userplugins/abs/).

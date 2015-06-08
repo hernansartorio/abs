@@ -1,0 +1,197 @@
+<!-- krpano plugin page template -->
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<meta http-equiv="imagetoolbar" content="no" />
+	<meta name="format-detection" content="telephone=no" />
+	<link rel="stylesheet" type="text/css" href="style.css"/>
+  <title>Abs</title>
+</head>
+<body>	
+	<div id="krpano_root">
+		<div id="krpano_headerwrapper">
+			<div id="krpano_header">
+				<div id="krpano_langsel">&nbsp;</div>
+				<div id="krpano_mainmenu">&nbsp;</div>
+			</div>
+		</div>
+		<div>
+			<div id="krpano_imagebar"></div>
+			<div id="krpano_logo"></div>
+		</div>
+		<div id="krpano_imagebar_space"></div>
+		<div id="krpano_contentwrapper">
+			<div id="krpano_content">
+				<div id="krpano_contentnav">
+					<h2><a href="#top" class="selflink">Plugins</a></h2>
+				</div>
+
+				<a name="top"></a>
+				<div id="krpano_contenttext">			
+<!-- USER CONTENT STARTS HERE -->	
+
+	<h1>Abs Plugin
+		<span class="pluginfilename">abs.swf / abs.js</span>
+		<span class="flashhtml5">for Flash and HTML5</span>
+		<div class="pluginautor">by Hernán Sartorio - hernan@uruguay360.com.uy</div>
+	</h1>
+	
+	<div class="paragraph">
+		<h2><a name="description" href="#description" class="selflink">Description</a></h2>
+    <ul>
+      <li>Let's you find the absolute position and attributes of a layer relative to the stage, no matter what the align, edge, scale, width/height, x/y or ox/oy settings are, of it or any of the infinite parents it may have.</li>
+      <li>Works with the scrollarea plugin too.</li>
+      <li>This plugin is also included in the downloads of the <a href="http://krpano.com/plugins/userplugins/tooltip">Tooltip</a> and <a href="http://krpano.com/plugins/userplugins/autothumbs">Auto Thumbs</a> plugins.</li>
+    </ul>
+	</div>
+	
+
+
+	<div class="paragraph">
+		<h2><a name="forum" href="#forum" class="selflink">krpano Forum Discussion Thread</a></h2>
+
+		<a href="http://krpano.com/forum/wbb/index.php?page=Thread&threadID=11344">Abs Plugin Thread</a>
+	</div>
+
+
+  <div class="paragraph">
+  <h2>Download</h2>
+    <ul>
+      <li>The plugin <s>price is €15</s> is free and open source (see the forum thread for details).</li> 
+      <li>You can download the plugin from its <a href="https://github.com/hernan124/abs">Github repository</a> (and contribute if you wish).</li>
+    </ul>
+  </div>
+
+	<div class="paragraph">
+		<h2><a name="syntax" href="#syntax" class="selflink">Syntax / XML Usage Example</a></h2>
+    Include the plugin:
+		<pre class="xmlpre">&lt;<a href="../../../docu/xml/#plugin">plugin</a> <a href="../../../docu/xml/#plugin.name">name</a>="abs" 
+        <a href="../../../docu/xml/#plugin.url">url</a>="abs.swf" 
+        <a href="../../../docu/xml/#plugin.alturl">alturl</a>="abs.js" 
+        <a href="../../../docu/xml/#plugin.keep">keep</a>="true"
+        /&gt;</pre>
+        <!-- <a href="#get_x" class="pluginattrib">get_x</a>="10"  -->
+    <br> Usage example:
+    <pre>plugin[abs].get_x(destination, layer_name);</pre>
+	</div>
+  
+  <div class="paragraph">
+    <h2><a name="actions" href="#actions" class="selflink">Plugin Actions</a></h2>
+    
+    <div style="padding-left:1px;padding-top:0;">
+    <table class="xmlattrdoc">
+      <tbody>
+        <tr class="xmlattrdocdes1"><td><a name="setcenter"></a>Action name</td></tr>
+      <tr>
+        <th>
+          <a href="#setcenter" class="selflink">get_x(destination, layer_name, origin*)</a><br>
+          <a href="#scrolltocenter" class="selflink">get_y(destination, layer_name, origin*)</a>
+        </th>
+      </tr>
+      <tr>
+        <td>
+          <p>
+            Calculates the layer's absolute <strong>x/y</strong> coordinate, and copies it to the destination variable.
+          </p>
+          Parameters: 
+          <ul>
+            <li>
+              <strong>destination</strong> <br>
+              The destination variable. If the variable doesn't exist it will be created.
+            </li>
+            <li>
+              <strong>layer_name</strong> <br>
+              The name of the layer.
+            </li>
+            <li>
+              <strong>origin</strong> (optional)<br>
+              The origin point of the layer that you wish to get the coordinates from. <br>
+              <strong>get_x</strong> possible values: <i>left</i>, <i>center</i>, <i>right</i>. Default is <i>left</i>. <br>
+              <strong>get_y</strong> possible values: <i>top</i>, <i>center</i>, <i>bottom</i>. Default is <i>top</i>.
+            </li>
+          </ul>
+        </td>
+      </tr>
+            
+      <tr class="xmlattrdocdesc"><td><a name="get_width"></a>Action name</td></tr>
+      <tr>
+        <th>
+          <a href="#get_width" class="selflink">get_width(destination, layer_name)</a> <br>
+          <a href="#get_height" class="selflink">get_height(destination, layer_name)</a>
+        </th>
+      </tr>
+      <tr>
+        <td>
+          <p>
+            Calculates the layer's absolute (real pixels) <strong>width/height</strong> value, and copies it to the destination variable.
+          </p>
+          Parameters: 
+          <ul>
+            <li>
+              <strong>destination</strong> <br>
+              The destination variable. If the variable doesn't exist it will be created.
+            </li>
+            <li>
+              <strong>layer_name</strong> <br>
+              The name of the layer.
+            </li>
+          </ul>
+        </td>
+      </tr>
+      
+      <tr class="xmlattrdocdesc"><td><a name="get_scale"></a>Action name</td></tr>
+      <tr><th><a href="#get_scale" class="selflink">get_scale(destination, layer_name)</a></th></tr>
+      <tr>
+        <td>
+          <p>
+            Calculates the layer's absolute <strong>scale</strong> value, and copies it to the destination variable.
+          </p>
+          Parameters: 
+          <ul>
+            <li>
+              <strong>destination</strong> <br>
+              The destination variable. If the variable doesn't exist it will be created.
+            </li>
+            <li>
+              <strong>layer_name</strong> <br>
+              The name of the layer.
+            </li>
+          </ul>
+        </td>
+      </tr>
+      
+    </tbody></table>
+    </div>
+  </div>
+
+	<div class="paragraph">
+		<h2><a name="example" href="#example" class="selflink">Example</a></h2>
+    <a href="example.xml">Source</a>
+
+    <script>
+      function showexample() 
+      {
+        var iframe = '<iframe id="ccexample" name="ccframe" src="example.html" width="100%"  height="400" scrolling="no" marginheight="0" marginwidth="0" frameborder="0"></iframe>';
+        document.getElementById("example").innerHTML = iframe;
+      }
+    </script>
+		<div id="example" onclick="showexample();" style="width:100%;height:400px;color:white;background-color:black;border:1px solid gray;cursor:pointer;">
+			<table width="100%" height="100%" style="color:white;">
+				<tr valign="middle"><td><center><b>CLICK TO VIEW EXAMPLE</b></center></td></tr>
+			</table>
+		</div>
+	</div>
+
+<!-- USER CONTENT ENDS HERE -->
+				</div>
+			</div>
+		</div>
+		<div id="krpano_footerwrapper">
+			<div id="krpano_footer">
+				<table border="0" cellpadding="0" cellspacing="0" width="100%"><tbody><tr><td align="right">Copyright &copy; 2011 krpano.com</td></tr></tbody></table>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
